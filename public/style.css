@@ -1,6 +1,7 @@
 @font-face {
 	font-family: BebasNeue;
 	src: url('BebasNeue Regular.otf');
+	src: url('BebasNeue Regular.ttf') format('truetype');
 }
 
 body {
