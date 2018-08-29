@@ -6,6 +6,7 @@
 body {
 	background-image: url('background.jpg');
 	font-family: Tahoma, Arial, sans-serif;
+	margin: 0;
 }
 
 p {
@@ -13,7 +14,7 @@ p {
 }
 
 .container {
-	min-width: 400px;
+	min-width: 340px;
 	max-width: 1050px;
 	margin: 0 auto;
 }
@@ -117,9 +118,7 @@ input {
 }
 
 .submit-message {
-	margin: 0 auto;
 	color: #fff;
-	width: 350px;
 	font-size: 22px;
 	font-family: BebasNeue, "Arial Narrow", sans-serif;
 	text-align: center;
