@@ -75,7 +75,7 @@ function getAuthenticatedUser() {
     $openid->optional = $openid_conf['optional'];
     $openid->returnUrl = $openid->realm.$_SERVER['REQUEST_URI'];
 
-    if (!$openid->mode) {
+    if (!$openid->mode || !$openid->validate()) {
         return null;
     }
 

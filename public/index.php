@@ -13,7 +13,7 @@ require_once '../include/index.php.inc'
 </head>
 <body>
 <div class="container">
-    <div class="logo"><img src="logo.png"></div>
+    <div class="logo"><a href="/"><img src="logo.png"></a></div>
     <div class="main">
         <div class="greeting">
             <p><strong>Приветствую тебя, первокурсник Южного федерального университета!</strong></p>
