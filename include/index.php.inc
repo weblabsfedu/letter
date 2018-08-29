@@ -1,13 +1,20 @@
 <?php
 require_once 'function.php';
 
-$user = getAuthenticatedUser();
-$authorized = ($user !== null && !empty($user['r61StId']));
+$authorized = false;
+$isStudent = false;
 
-if ($authorized) {
+$user = getAuthenticatedUser();
+
+if ($user !== null) {
     $email = $user['email'];
-    $letter = getLetterByUserId($user['r61StId']);
-    $encryptedUser = encrypt($user['r61StId']);
+    $authorized = true;
+
+    if (!empty($user['r61StId'])) {
+        $isStudent = true;
+        $letter = getLetterByUserId($user['r61StId']);
+        $encryptedUser = encrypt($user['r61StId']);
+    }
 }
 
 $loginLink = authUrl();

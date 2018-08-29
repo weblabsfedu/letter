@@ -21,18 +21,22 @@ require_once '../include/index.php.inc'
             <p>Наверняка, ты захочешь узнать, что ты думал о своем будущем 4 года назад. Поэтому мы предлагаем написать письмо себе в будущее.</p>
         </div>
         <?php if ($authorized): ?>
-            <div class="login-info">Ваш аккаунт &mdash; <?php echo $email; ?> (<a href="/logout.php" class="login-link">Выйти</a>)</div>
-            <div class="message">
-                <div class="message__inner">
-                    <textarea id="letter-input" maxlength="3900" name="message"><?php echo $letter;?></textarea>
+            <?php if ($isStudent): ?>
+                <div class="login-info">Ваш аккаунт &mdash; <?php echo $email; ?> (<a href="/logout.php" class="login-link">Выйти</a>)</div>
+                <div class="message">
+                    <div class="message__inner">
+                        <textarea id="letter-input" maxlength="3900" name="message"><?php echo $letter;?></textarea>
+                    </div>
                 </div>
-            </div>
+            <?php else: ?>
+                <div class="login-info">Ваш аккаунт &mdash; <?php echo $email; ?>, сайт доступен только для студентов (<a href="/logout.php" class="login-link">Выйти</a>)</div>
+            <?php endif; ?>
         <?php else: ?>
             <div class="login-info"><a href="<?php echo $loginLink; ?>" class="login-link">Пожалуйста, авторизуйтесь с логином и паролем личного кабинета</a></div>
         <?php endif; ?>
     </div>
     <div class="sidebar">
-        <?php if ($authorized): ?>
+        <?php if ($authorized && $isStudent): ?>
             <div class="submit-message"></div>
             <form id="letter-form" method="POST" action="save_letter.php">
                 <input type="submit" name="submit" value="Отправить">
