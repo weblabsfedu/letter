@@ -2,160 +2,129 @@
 	font-family: BebasNeue;
 	src: url('BebasNeue Regular.otf');
 }
+
 body {
 	background-image: url('background.jpg');
-	}
+	font-family: Tahoma, Arial, sans-serif;
+}
+
 p {
 	margin: 0.7em 0;
-	}
+}
+
 .container {
-    margin-top: 25px;
-	margin-bottom: 35px;
-	}
+	min-width: 400px;
+	max-width: 1050px;
+	margin: 0 auto;
+}
+
 .container:after {
-	content:''; 
-	display:block; 
-	clear:both;
-	}
+	content: '';
+	display: block;
+	clear: both;
+}
+
 .main {
-	width: 100%; 
-	max-width: 900px; 
-	float: left;}
+	width: 100%;
+	float: left;
+	max-width: 100%;
+}
+
 .sidebar {
-	width: 240px; 
-	height: 572px;
-	background: rgba(37,138,231,0.5); 
-	float: left; 
-	position: relative;}
+	float: left;
+	position: relative;
+	padding: 30px 0;
+	width: 100%;
+	height: auto;
+}
+
 .main .greeting, .main .message {
-	margin-left: 50px; 
-	margin-right: 30px;
-	}
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
 .greeting {
-	background: rgba(110,110,110,0.5);
-	color:#fff;
+	background: rgba(110, 110, 110, 0.5);
+	color: #fff;
 	text-transform: uppercase;
 	text-indent: 20px;
 	padding: 1px 20px 20px 30px;
 	margin-bottom: 30px;
-	height: 208px;
 	font-size: 22px;
 	font-family: BebasNeue, "Arial Narrow", sans-serif;
-	}
+}
+
+.greeting strong {
+	letter-spacing: 1px;
+}
+
 .message {
-	margin: 0;
+	margin-top: 35px;
 	border: 2px solid #a6a6a6;
-	}
+}
+
 .message__inner {
 	margin: 0 20px 0 0;
 }
+
 .message.message-login {
-	border:0;
+	border: 0;
 	text-indent: 20px;
 	margin-top: 30px;
 	padding: 0 20px 0 30px;
-	}
+	text-align: center;
+}
+
 .login {
-	color:#fff;
+	color: #fff;
 	font-size: 18px;
 	text-transform: uppercase;
-	}
+}
+
 textarea {
-	height: 300px; 
-	resize: none; 
-	display: block; 
+	height: 300px;
+	resize: none;
+	display: block;
 	padding: 5px 10px;
-	width: 100%; 
+	width: 100%;
 	border: 0;
 	font-size: 18px;
-	}
+}
+
 input {
 	display: block;
-	margin: 0 auto;
+	margin: 20px auto 0 auto;
 	background: #4f575e;
 	text-transform: uppercase;
-    color: #fff;
+	color: #fff;
 	padding: 10px 30px;
 	width: 150px;
-    position: absolute;
-    bottom: 20px;
-    left: 45px;
 	border: 0;
 	font-size: 22px;
 	font-family: BebasNeue, "Arial Narrow", sans-serif;
-	}
-.logo-mobile {
-	display: none;
-	}
-.logo {
-    height: 244px;
 }
+
+.logo {
+	display: block;
+	margin: 35px 0;
+}
+
 .logo img {
 	display: block;
-    width: 160px;
-    margin: 22px auto;
+	width: 160px;
+	margin: 22px auto;
 }
+
 .submit-message {
 	margin: 0 auto;
 	color: #fff;
-	width: 150px;
+	width: 350px;
 	font-size: 22px;
 	font-family: BebasNeue, "Arial Narrow", sans-serif;
 	text-align: center;
+	letter-spacing: 1px;
 }
-.submit-message a{
+
+.submit-message a {
 	color: #fff;
-}
-@media all and (max-width:1200px) {
-	.main {
-		max-width: 750px; 
-	}
-	.greeting {
-		height: 240px;
-	}
-	.sidebar {
-		width: 200px;
-		height: 604px;
-	}
-	input {
-		left: 25px;
-	}
-	.logo {
-		height: 277px;
-	}
-}
-@media all and (max-width:1000px) {
-	.container {
-		min-width: 400px;
-	}
-	.main {
-		max-width: 100%;
-	}
-	.sidebar {
-		padding: 30px 0;
-		width: 100%;
-		height: auto;
-		background: none;
-	}
-	.main .greeting, .main .message {
-		margin-left: 20px;
-		margin-right: 20px;
-	}
-	.greeting {
-		height: auto;
-	}
-	input {
-		margin-top: 20px;
-		position: static;
-	}
-	.logo {
-		display: none;
-	}
-	.logo-mobile.logo {
-		display: block;
-		height: 180px;
-	}
-	.submit-message {
-		width: 350px;
-	}
 }
