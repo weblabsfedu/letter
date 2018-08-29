@@ -1,15 +1,14 @@
 <?php
 require_once 'function.php';
-require_once 'openid.php';
 
 $user = getAuthenticatedUser();
-$isFirstCourse = checkFirstCourse($user);
-$authorized = ($user !== null && $user['isStudent'] === true && $isFirstCourse);
+$authorized = ($user !== null && !empty($user['r61StId']));
+
+if ($authorized) {
+    $email = $user['email'];
+    $letter = getLetterByUserId($user['r61StId']);
+    $encryptedUser = encrypt($user['r61StId']);
+}
 
 $loginLink = authUrl();
 
-if ($authorized){
-    $encryptedUser = encrypt($user['r61StId']);
-    createUserIfNotExists($user);
-    $letter = getLetterByUserId($user['r61StId']);
-}

@@ -1,5 +1,6 @@
 <?php
 require_once 'config.php';
+require_once 'openid.php';
 
 function insertLetter($link, $user_id, $letter){
     $result = false;
@@ -59,7 +60,7 @@ function authUrl() {
     $openid->identity = $openid_conf['identity'];
     $openid->required = $openid_conf['required'];
     $openid->optional = $openid_conf['optional'];
-    $openid->returnUrl = $openid->realm.$_SERVER['REQUEST_URI'];
+    $openid->returnUrl = $openid->realm . '/auth.php'; // .$_SERVER['REQUEST_URI']
 
     $loginLink = $openid->authUrl();
 
@@ -67,13 +68,22 @@ function authUrl() {
 }
 
 function getAuthenticatedUser() {
+    session_start();
+    if (!isset($_SESSION['user'])) {
+        return null;
+    }
+    $user = unserialize(decrypt($_SESSION['user']));
+    return $user;
+}
+
+function getOpenidUser() {
     global $openid_conf;
 
     $openid = new \LightOpenID($openid_conf['host']);
     $openid->identity = $openid_conf['identity'];
     $openid->required = $openid_conf['required'];
     $openid->optional = $openid_conf['optional'];
-    $openid->returnUrl = $openid->realm.$_SERVER['REQUEST_URI'];
+    $openid->returnUrl = $openid->realm . '/auth.php'; // .$_SERVER['REQUEST_URI']
 
     if (!$openid->mode || !$openid->validate()) {
         return null;
@@ -144,8 +154,4 @@ function createUserIfNotExists($user) {
 
     pg_close($link);
     return $result;
-}
-
-function checkFirstCourse($user) {
-    return true;
 }
