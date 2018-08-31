@@ -161,7 +161,7 @@ function checkCourse($stud1cId) {
     global $sfedu_ws_is_first_bachelor_access_token;
 
     $headers[] = "x-auth-token: $sfedu_ws_is_first_bachelor_access_token";
-    $stud1cId='000221349';
+
     $paddedStudId = sprintf("%09d", $stud1cId);
     $url = mb_ereg_replace('{id}', $paddedStudId, $sfedu_ws_is_first_bachelor_url);
 
