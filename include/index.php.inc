@@ -11,7 +11,7 @@ if ($user !== null) {
     $authorized = true;
 
     if (!empty($user['r61StId'])) {
-        $isStudent = true;
+        $isAllowed = checkCourse($user['r61StId']);
         $letter = getLetterByUserId($user['r61StId']);
         $encryptedUser = encrypt($user['r61StId']);
     }

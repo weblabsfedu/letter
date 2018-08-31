@@ -16,12 +16,16 @@ require_once '../include/index.php.inc'
     <div class="logo"><a href="/"><img src="logo.png"></a></div>
     <div class="main">
         <div class="greeting">
-            <p><strong>Приветствую тебя, первокурсник Южного федерального университета!</strong></p>
-            <p>В твоей жизни начинается новый этап, мы знаем, что он станет самым ярким и интересным в твоей жизни. Ты закладываешь фундамент своего будущего, а это значит, что по окончании обучения, ты точно будешь знать, каким будет твой дальнейший путь.</p>
-            <p>Наверняка, ты захочешь узнать, что ты думал о своем будущем 4 года назад. Поэтому мы предлагаем написать письмо себе в будущее.</p>
+            <p><strong>ПРИВЕТСТВУЕМ ТЕБЯ, ПЕРВОКУРСНИК ЮЖНОГО ФЕДЕРАЛЬНОГО УНИВЕРСИТЕТА!</strong></p>
+            <p>В ТВОЕЙ ЖИЗНИ НАЧИНАЕТСЯ НОВЫЙ ЭТАП.</p>
+            <p>МЫ УВЕРЕНЫ, ЧТО ОН СТАНЕТ САМЫМ ЯРКИМ И ИНТЕРЕСНЫМ В ТВОЕЙ ЖИЗНИ.</p>
+            <p>СЕГОДНЯ ТЫ ЗАКЛАДЫВАЕШЬ ФУНДАМЕНТ СВОЕГО БУДУЩЕГО, А ЭТО ЗНАЧИТ, ПО ОКОНЧАНИИ ОБУЧЕНИЯ, ТЫ ТОЧНО БУДЕШЬ ЗНАТЬ, КАКИМ БУДЕТ ТВОЙ ДАЛЬНЕЙШИЙ ПУТЬ.</p>
+            <p>НАВЕРНЯКА, ТЫ ЗАХОЧЕШЬ УЗНАТЬ, ЧТО ТЫ ДУМАЛ О СВОЕМ БУДУЩЕМ ЧЕТЫРЕ ГОДА НАЗАД!</p>
+            <p>ПОЭТОМУ МЫ ПРЕДЛАГАЕМ НАПИСАТЬ ПИСЬМО СЕБЕ В БУДУЩЕЕ!</p>
+            <p class="postscriptum">Р.S. Если ты успеешь написать письмо до 10 сентября, то получишь возможность выиграть уникальный комплект с символикой университета и с автографом ректора! Победитель получит свой приз на Фестивале науки Юга России 5 октября на стадионе Ростов-Арена!</p>
         </div>
         <?php if ($authorized): ?>
-            <?php if ($isStudent): ?>
+            <?php if ($isAllowed): ?>
                 <div class="login-info">Ваш аккаунт &mdash; <?php echo $email; ?> (<a href="/logout.php" class="login-link">Выйти</a>)</div>
                 <div class="message">
                     <div class="message__inner">
@@ -29,14 +33,14 @@ require_once '../include/index.php.inc'
                     </div>
                 </div>
             <?php else: ?>
-                <div class="login-info">Ваш аккаунт &mdash; <?php echo $email; ?>, сайт доступен только для студентов (<a href="/logout.php" class="login-link">Выйти</a>)</div>
+                <div class="login-info">Ваш аккаунт &mdash; <?php echo $email; ?>, сайт доступен только для первокурсников (<a href="/logout.php" class="login-link">Выйти</a>)</div>
             <?php endif; ?>
         <?php else: ?>
             <div class="login-info"><a href="<?php echo $loginLink; ?>" class="login-link">Пожалуйста, авторизуйтесь с логином и паролем личного кабинета</a></div>
         <?php endif; ?>
     </div>
     <div class="sidebar">
-        <?php if ($authorized && $isStudent): ?>
+        <?php if ($authorized && $isAllowed): ?>
             <div class="submit-message"></div>
             <form id="letter-form" method="POST" action="save_letter.php">
                 <input type="submit" name="submit" value="Отправить">

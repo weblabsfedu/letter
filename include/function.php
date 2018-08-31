@@ -155,3 +155,24 @@ function createUserIfNotExists($user) {
     pg_close($link);
     return $result;
 }
+
+function checkCourse($stud1cId) {
+    global $sfedu_ws_is_first_bachelor_url;
+    global $sfedu_ws_is_first_bachelor_access_token;
+
+    $headers[] = "x-auth-token: $sfedu_ws_is_first_bachelor_access_token";
+    $stud1cId='000221349';
+    $paddedStudId = sprintf("%09d", $stud1cId);
+    $url = mb_ereg_replace('{id}', $paddedStudId, $sfedu_ws_is_first_bachelor_url);
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    $result = curl_exec($ch);
+    curl_close($ch);
+
+    $result = ($result === false) ? false : json_decode($result);
+
+    return $result;
+}

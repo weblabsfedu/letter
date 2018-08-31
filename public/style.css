@@ -1,12 +1,18 @@
 @font-face {
-	font-family: BebasNeue;
+	font-family: "BebasNeue Regular";
 	src: url('BebasNeue Regular.otf');
 	src: url('BebasNeue Regular.ttf') format('truetype');
 }
 
+@font-face {
+	font-family: "BebasNeue Bold";
+	src: url('BebasNeue Bold.otf');
+	src: url('BebasNeue Bold.ttf') format('truetype');
+}
+
 body {
 	background-image: url('background.jpg');
-	font-family: Tahoma, Arial, sans-serif;
+	font-family: Arial, sans-serif;
 	margin: 0;
 }
 
@@ -53,11 +59,19 @@ p {
 	padding: 1px 20px 20px 30px;
 	margin-bottom: 30px;
 	font-size: 22px;
-	font-family: BebasNeue, "Arial Narrow", sans-serif;
+	font-family: "BebasNeue Regular", "Arial Narrow", sans-serif;
 }
 
 .greeting strong {
+	font-family: "BebasNeue Bold", "Arial Narrow", sans-serif;
 	letter-spacing: 1px;
+}
+
+.postscriptum {
+	font-family: Arial, sans-serif;
+	font-size: 20px;
+	text-transform: none;
+	margin-top: 30px;
 }
 
 .message {
@@ -102,7 +116,7 @@ input {
 	padding: 10px 30px;
 	border: 0;
 	font-size: 22px;
-	font-family: BebasNeue, "Arial Narrow", sans-serif;
+	font-family: "BebasNeue Regular", "Arial Narrow", sans-serif;
 }
 
 .logo {
@@ -119,7 +133,7 @@ input {
 .submit-message {
 	color: #fff;
 	font-size: 22px;
-	font-family: BebasNeue, "Arial Narrow", sans-serif;
+	font-family: "BebasNeue Regular", "Arial Narrow", sans-serif;
 	text-align: center;
 	letter-spacing: 1px;
 }
